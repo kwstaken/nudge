@@ -146,3 +146,79 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* --- Visualizer page styles --- */
+
+/* Hero section for Visualizer */
+.visualizer-hero {
+  background: linear-gradient(135deg, #ffb700, #ff7a00);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.visualizer-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.visualizer-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main visualizer section */
+.visualizer {
+  padding: 5rem 2rem;       /* more space under orange tab */
+  display: flex;
+  background-color: #faf9f9; /* new background */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.model-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Progress styles */
+.progress-label {
+  font-weight: 700;
+  font-size: 1.5rem; /* bigger size */
+  color: #ff7a00;
+}
+
+
+.progress-bar {
+  width: 100%;
+  max-width: 250px;
+  height: 15px;
+  background: #fff4db;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 50%; /* demo value */
+  background: #ff7a00;
+}
+
+/* Status text below the bar */
+.progress-status {
+  font-weight: 600;
+  color: #ff7a00;
+  margin-top: 0.5rem;
+}
+
+.avatar-image {
+  width: 250px;          /* same size as before */
+  height: auto;          /* keep image aspect ratio */
+  border-radius: 20px;   /* optional, remove if you want square corners */
+}
+
