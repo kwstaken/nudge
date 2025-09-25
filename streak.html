@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily Streak – Nudge">
+  <title>Daily Streak – Nudge</title>
+
+  <!-- Fonts + CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Nudge</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Daily Streak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>🔥 Keep the Streak Alive!</h1>
+      <p>Consistency builds habits. Smash your best streak and watch your fire grow.</p>
+    </div>
+  </section>
+
+<section class="streak-section">
+  <h2>Current Streak</h2>
+  <div class="streak-box" id="streakBox">
+    <span id="streakCount">🔥 0</span>
+    <p>Days in a row</p>
+    <p class="best-streak">Best Streak: <span id="bestStreak">0</span>🔥</p>
+    <p class="motivation" id="motivationText"></p>
+  </div>
+  <div class="streak-btn-container">
+    <button id="markCompleteBtn" class="feature-btn">Mark Today Complete</button>
+  </div>
+
+  <!-- Debug buttons -->
+  <div class="debug-btn-container">
+    <button id="addStreakBtn" class="feature-btn">+1 Streak (Debug)</button>
+    <button id="subStreakBtn" class="feature-btn">-1 Streak (Debug)</button>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Nudge. All rights reserved.</p>
+  </footer>
+
+  <script src="streak.js"></script>
+</body>
+</html>
