@@ -1,4 +1,4 @@
-/* General Reset */
+/* ========== GLOBAL RESET & BODY ========== */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   background-color: #fff9f0;
 }
 
-/* Header */
+/* ========== HEADER & NAVIGATION ========== */
 header {
   display: flex;
   justify-content: space-between;
@@ -47,40 +47,70 @@ nav ul li a:hover {
   color: #ff7a00;
 }
 
-/* Hero Section */
-.hero {
+/* ========== HERO SECTION ========== */
+.hero,
+.visualizer-hero {
   background: linear-gradient(135deg, #ffb700, #ff7a00);
   color: #fff;
-  padding: 5rem 2rem;
   text-align: center;
 }
 
-.hero h1 {
+.hero {
+  padding: 5rem 2rem;
+}
+
+.visualizer-hero {
+  padding: 4rem 2rem;
+}
+
+.hero h1,
+.visualizer-hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero p {
+.hero p,
+.visualizer-hero p {
   max-width: 600px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
-.btn {
+/* ========== BUTTONS ========== */
+.btn,
+.feature-btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #fff;
-  color: #ff7a00;
+  background: #ff7a00;
+  color: #fff;
   font-weight: 600;
   border-radius: 5px;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn {
+  background: #fff;
+  color: #ff7a00;
 }
 
 .btn:hover {
   background: #fff4db;
 }
 
-/* Features */
+.feature-btn:hover {
+  background: #ffb700;
+}
+
+/* Debug style for feature buttons */
+.debug-btn-container .feature-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* ========== FEATURES GRID ========== */
 .features {
   padding: 4rem 2rem;
   text-align: center;
@@ -116,7 +146,7 @@ nav ul li a:hover {
   color: #ff7a00;
 }
 
-/* About */
+/* ========== ABOUT ========== */
 .about {
   padding: 4rem 2rem;
   text-align: center;
@@ -129,7 +159,7 @@ nav ul li a:hover {
   color: #ff7a00;
 }
 
-/* Footer */
+/* ========== FOOTER ========== */
 footer {
   text-align: center;
   padding: 2rem;
@@ -147,31 +177,11 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* --- Visualizer page styles --- */
-
-/* Hero section for Visualizer */
-.visualizer-hero {
-  background: linear-gradient(135deg, #ffb700, #ff7a00);
-  color: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.visualizer-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.visualizer-hero p {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Main visualizer section */
+/* ========== VISUALIZER PAGE ========== */
 .visualizer {
-  padding: 5rem 2rem;       /* more space under orange tab */
+  padding: 5rem 2rem;
+  background-color: #faf9f9;
   display: flex;
-  background-color: #faf9f9; /* new background */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -186,13 +196,17 @@ footer a:hover {
   width: 100%;
 }
 
-/* Progress styles */
-.progress-label {
-  font-weight: 700;
-  font-size: 1.5rem; /* bigger size */
-  color: #ff7a00;
+.avatar-image {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
 }
 
+.progress-label {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ff7a00;
+}
 
 .progress-bar {
   width: 100%;
@@ -205,40 +219,17 @@ footer a:hover {
 
 .progress-fill {
   height: 100%;
-  width: 50%; /* demo value */
+  width: 50%;
   background: #ff7a00;
 }
 
-/* Status text below the bar */
 .progress-status {
   font-weight: 600;
   color: #ff7a00;
   margin-top: 0.5rem;
 }
 
-.avatar-image {
-  width: 250px;          /* same size as before */
-  height: auto;          /* keep image aspect ratio */
-  border-radius: 20px;   /* optional, remove if you want square corners */
-}
-
-.feature-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1.2rem;
-  background: #ff7a00;         /* your orange theme */
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-.feature-btn:hover {
-  background: #ff9b33;        /* lighter orange on hover */
-}
-
-/* Affirmations single-quote */
+/* ========== AFFIRMATIONS PAGE ========== */
 .affirmations {
   padding: 4rem 2rem;
   background: #faf9f9;
@@ -270,24 +261,7 @@ footer a:hover {
   color: #ff7a00;
 }
 
-.feature-btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #ff7a00;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 5px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.feature-btn:hover {
-  background: #ffb700;
-}
-
-
+/* ========== STREAK PAGE ========== */
 .streak-section {
   padding: 2rem;
   text-align: center;
@@ -338,11 +312,8 @@ footer a:hover {
   justify-content: center;
   gap: 1rem;
 }
-.debug-btn-container .feature-btn {
-  background-color: #ddd;
-  color: #333;
-}
 
+/* ========== BADGES PAGE ========== */
 .badges-section {
   padding: 2rem;
   text-align: center;
