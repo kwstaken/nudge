@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nudge - Input Data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .input-form{
+      max-width:600px;
+      margin:3rem auto;
+      padding:2rem;
+      background:#faf9f9;
+      border-radius:1rem;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    .input-form h1{
+      text-align:center;
+      margin-bottom:1rem;
+    }
+    .input-form label{
+      display:block;
+      font-weight:600;
+      margin-top:1rem;
+    }
+    .input-form input[type="text"],
+    .input-form input[type="number"]{
+      width:100%;
+      padding:0.5rem;
+      border:1px solid #ccc;
+      border-radius:0.5rem;
+    }
+    .checkbox-group{
+      margin-top:1rem;
+    }
+    .checkbox-group label{
+      display:inline-block;
+      margin-right:1rem;
+    }
+    .input-form button{
+      margin-top:2rem;
+      width:100%;
+      padding:0.75rem;
+      background:orange;
+      color:#fff;
+      border:none;
+      border-radius:0.5rem;
+      font-weight:700;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Nudge</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visualizer.html">Visualizer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="input-form">
+    <h1>Enter Your Info</h1>
+    <label>Weight (kg)</label>
+    <input type="number" id="weight">
+    <label>Height (m)</label>
+    <input type="number" step="0.01" id="height">
+    <label>Age</label>
+    <input type="number" id="age">
+    <label>Blood Type</label>
+    <input type="text" id="bloodType">
+    <label>Sex</label>
+    <input type="text" id="sex">
+
+    <h2>Measurements</h2>
+    <label>Waist (in)</label><input type="number" id="waist">
+    <label>Shoulders (in)</label><input type="number" id="shoulders">
+    <label>Chest (in)</label><input type="number" id="chest">
+    <label>Bicep (in)</label><input type="number" id="bicep">
+    <label>Thigh (in)</label><input type="number" id="thigh">
+
+    <div class="checkbox-group">
+      <label><input type="radio" name="calorie" value="surplus"> Calorie Surplus</label>
+      <label><input type="radio" name="calorie" value="deficit"> Calorie Deficit</label>
+    </div>
+    <label>Value (kcal/day)</label>
+    <input type="number" id="calorieValue">
+
+    <button onclick="saveData()">Save & Go to Visualizer</button>
+  </div>
+
+  <script>
+    function saveData(){
+      const data={
+        weight:document.getElementById('weight').value,
+        height:document.getElementById('height').value,
+        age:document.getElementById('age').value,
+        bloodType:document.getElementById('bloodType').value,
+        sex:document.getElementById('sex').value,
+        waist:document.getElementById('waist').value,
+        shoulders:document.getElementById('shoulders').value,
+        chest:document.getElementById('chest').value,
+        bicep:document.getElementById('bicep').value,
+        thigh:document.getElementById('thigh').value,
+        caloriePlan:document.querySelector('input[name="calorie"]:checked')?.value || '',
+        calorieValue:document.getElementById('calorieValue').value
+      };
+      localStorage.setItem('userData',JSON.stringify(data));
+      window.location.href='visualizer.html';
+    }
+  </script>
+</body>
+</html>

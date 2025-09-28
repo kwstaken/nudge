@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environmental Alerts</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* Small map override */
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Nudge</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="affirmations.html">Affirmations</a></li>
+        <li><a href="streak.html">Streak</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="virtual.html">Virtual Companion</a></li>
+        <li><a href="environment.html" class="active">Environmental Alerts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about">
+    <h2>Environmental Alerts 🌍</h2>
+    <p>This map shows your location and nearby fast-food/unhealthy food spots (demo).</p>
+    <div id="map"></div>
+    <p id="status" style="margin-top:1rem;color:#ff7a00;font-weight:600;"></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Nudge. All Rights Reserved.
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Fake list of "unhealthy" places with lat/lon offsets (demo)
+    const fakePlaces = [
+      { name: "Burger Hub", latOffset: 0.001, lonOffset: 0.001 },
+      { name: "Fried Heaven", latOffset: -0.001, lonOffset: 0.002 },
+      { name: "Pizza World", latOffset: 0.002, lonOffset: -0.001 },
+      { name: "Sugar Shack", latOffset: -0.002, lonOffset: -0.001 }
+    ];
+
+    const statusEl = document.getElementById('status');
+    let map;
+
+    function initMap(lat, lon) {
+      map = L.map('map').setView([lat, lon], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Mark user location
+      const userMarker = L.marker([lat, lon]).addTo(map);
+      userMarker.bindPopup("<b>You are here</b>").openPopup();
+
+      // Add fake places nearby
+      fakePlaces.forEach(place => {
+        const marker = L.marker([lat + place.latOffset, lon + place.lonOffset]).addTo(map);
+        marker.bindPopup(`<b>${place.name}</b><br>Unhealthy food spot (demo)`);
+      });
+    }
+
+    function geoSuccess(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      statusEl.textContent = `Your location: ${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+      initMap(lat, lon);
+    }
+
+    function geoError() {
+      statusEl.textContent = "Could not access your location. Showing a demo location.";
+      // Fallback coordinates (e.g., Manila)
+      const lat = 14.5995;
+      const lon = 120.9842;
+      initMap(lat, lon);
+    }
+
+    if (navigator.geolocation) {
+      statusEl.textContent = "Locating...";
+      navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+    } else {
+      geoError();
+    }
+  </script>
+</body>
+</html>

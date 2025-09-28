@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nudge - Idle Screen">
+  <title>Idle - Nudge</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Fullscreen Paula GIF */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #000; /* black background for contrast */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer; /* show pointer so user knows it’s clickable */
+    }
+
+    .paula-gif-fullscreen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body onclick="window.location.href='index.html'">
+  <img src="paula.gif" alt="Paula Companion" class="paula-gif-fullscreen">
+</body>
+</html>

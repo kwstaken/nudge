@@ -1,0 +1,456 @@
+/* === General Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #faf9f9;
+}
+
+/* === Header === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff4db;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff7a00;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ff7a00;
+}
+
+/* === Hero Section === */
+.hero {
+  background: linear-gradient(135deg, #ffb700, #ff7a00);
+  color: #fff;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  color: #ff7a00;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background: #fff4db;
+}
+
+/* === Features === */
+.features {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff7a00;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: #fffef9;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  border-top: 5px solid #ffb700;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  color: #ff7a00;
+}
+
+/* === About === */
+.about {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #fff4db;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff7a00;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fffef9;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #ff7a00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* === Visualizer Page === */
+.visualizer-hero {
+  background: linear-gradient(135deg, #ffb700, #ff7a00);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.visualizer-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.visualizer-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.visualizer {
+  padding: 5rem 2rem;
+  display: flex;
+  background-color: #faf9f9;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.model-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.progress-label {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ff7a00;
+}
+
+.progress-bar {
+  width: 100%;
+  max-width: 250px;
+  height: 15px;
+  background: #fff4db;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 50%; /* demo value */
+  background: #ff7a00;
+}
+
+.progress-status {
+  font-weight: 600;
+  color: #ff7a00;
+  margin-top: 0.5rem;
+}
+
+.avatar-image {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.feature-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: #ff7a00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.feature-btn:hover {
+  background: #ff9b33;
+}
+
+/* === Affirmations Page === */
+.affirmations {
+  padding: 4rem 2rem;
+  background: #faf9f9;
+  text-align: center;
+}
+
+.affirmations h2 {
+  font-size: 2rem;
+  color: #ff7a00;
+  margin-bottom: 2rem;
+}
+
+.quote-card {
+  display: inline-block;
+  background: #fffef9;
+  border-top: 5px solid #ffb700;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  font-style: italic;
+  max-width: 500px;
+}
+
+.quote-card cite {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  color: #ff7a00;
+}
+
+/* === Streak Page === */
+.streak-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.streak-box {
+  background: #fff;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.streak-box.bounce {
+  transform: scale(1.05);
+}
+
+#streakCount {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ff7a00;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.best-streak {
+  font-weight: 600;
+  color: #ff7a00;
+  margin: 0.5rem 0;
+}
+
+.motivation {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.streak-btn-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.debug-btn-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.debug-btn-container .feature-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* === Badges Page === */
+.badges-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.badge-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.badge-card.locked {
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+
+.badge-card:hover {
+  transform: translateY(-4px);
+}
+
+.badge-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-title {
+  font-weight: 700;
+  color: #ff7a00;
+}
+
+.badge-desc {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.25rem;
+}
+
+/* === Virtual Companion Page === */
+.virtual-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.virtual-section h1 {
+  font-size: 2.2rem;
+  color: #ff7a00;
+  margin-bottom: 0.5rem;
+}
+
+.virtual-section .intro {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.companion-box {
+  background: #fffef9;
+  border-top: 5px solid #ffb700;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 550px;
+  margin: 0 auto;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.question {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.choice-btn {
+  padding: 0.6rem 1.2rem;
+  background: #ff7a00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.choice-btn:hover {
+  background: #ff9b33;
+}
+
+.reply {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  min-height: 40px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.avatar-info-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-side-info {
+  background: #fffef9;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+  color: #444;
+  width: 250px;
+  text-align: left;
+}
+
+

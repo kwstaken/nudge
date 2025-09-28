@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily Affirmations – Nudge">
+  <title>Daily Affirmations – Nudge</title>
+
+  <!-- Fonts + CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Nudge</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="affirmations.html" class="active">Affirmations</a></li>
+        <li><a href="streak.html">Streak</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="virtual.html">Virtual Companion</a></li>
+        <li><a href="environment.html">Enviromental Alerts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Daily Affirmations</h1>
+      <p>Get inspired every day with uplifting quotes to help you stay positive and motivated.</p>
+    </div>
+  </section>
+
+  <section class="affirmations">
+    <h2>Today’s Motivational Quote</h2>
+    <div class="quote-card" id="quoteBox">
+      <!-- JS inserts quote here -->
+    </div>
+    <!-- 👇 Button moved directly after the box -->
+    <div class="quote-btn-container">
+      <button id="newQuoteBtn" class="feature-btn">Show Another Quote</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nudge. All rights reserved.</p>
+  </footer>
+
+  <script src="affirmations.js"></script>
+</body>
+</html>

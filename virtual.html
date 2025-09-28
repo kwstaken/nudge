@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nudge - Virtual Companion">
+  <title>Virtual Companion - Nudge</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* extra style for the GIF */
+    .companion-image {
+      display: block;
+      margin: 0 auto 1.5rem auto;
+      max-width: 470px; /* adjust size here */
+      border-radius: 15px; /* optional */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Nudge</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="affirmations.html">Affirmations</a></li>
+        <li><a href="streak.html">Streak</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="virtual.html" class="active">Virtual Companion</a></li>
+        <li><a href="environment.html">Enviromental Alerts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Virtual Companion Section -->
+  <section class="virtual-section">
+    <h1>Virtual Companion</h1>
+    <p class="intro">Choose answers and follow the conversation tree with your companion.</p>
+
+    <!-- 👇 animated gif above the question box -->
+    <img src="paula.gif" alt="Virtual Companion" class="companion-image">
+
+    <div class="companion-box">
+      <div class="question" id="questionBox">How are you doing today?</div>
+      <div class="choices" id="choicesBox"></div>
+      <div class="reply" id="replyBox"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nudge. All rights reserved.</p>
+    <p><a href="mailto:contact@nudgeapp.com">contact@nudgeapp.com</a></p>
+  </footer>
+
+  <script>
+    // Conversation tree
+    const conversation = {
+      start: {
+        question: "How are you doing today?",
+        choices: [
+          { text: "Great", next: "greatReply" },
+          { text: "Good", next: "goodReply" },
+          { text: "Alright", next: "alrightBranch" },
+          { text: "Bad", next: "badBranch" },
+          { text: "Terrible", next: "terribleBranch" }
+        ]
+      },
+      greatReply: {
+        reply: "Awesome! Keep the energy going! 🌟",
+        question: "Want a productivity tip?",
+        choices: [
+          { text: "Yes", next: "tipYes" },
+          { text: "No", next: "end" }
+        ]
+      },
+      goodReply: {
+        reply: "Nice! Keep up the good vibes! ✨",
+        question: "Need some motivation?",
+        choices: [
+          { text: "Sure", next: "tipYes" },
+          { text: "No thanks", next: "end" }
+        ]
+      },
+      alrightBranch: {
+        reply: "Every step counts, you got this 💪",
+        question: "Would you like a calming exercise?",
+        choices: [
+          { text: "Yes please", next: "calming" },
+          { text: "No", next: "end" }
+        ]
+      },
+      badBranch: {
+        reply: "I’m here for you. You’re stronger than you think ❤️",
+        question: "Want a quick breathing exercise?",
+        choices: [
+          { text: "Yes", next: "calming" },
+          { text: "No", next: "end" }
+        ]
+      },
+      terribleBranch: {
+        reply: "Tough days happen. Deep breath — I’ve got your back 🤗",
+        question: "Want a small uplifting quote?",
+        choices: [
+          { text: "Yes", next: "quote" },
+          { text: "No", next: "end" }
+        ]
+      },
+      tipYes: {
+        reply: "Tip: break your goal into 2-minute actions right now! 🚀",
+        question: "Another tip?",
+        choices: [
+          { text: "Yes", next: "quote" },
+          { text: "No", next: "end" }
+        ]
+      },
+      calming: {
+        reply: "Inhale for 4 seconds, hold 4, exhale 4… repeat a few times 🫁",
+        question: "Feeling better?",
+        choices: [
+          { text: "Yes", next: "end" },
+          { text: "No", next: "quote" }
+        ]
+      },
+      quote: {
+        reply: "“The secret of getting ahead is getting started.” — Mark Twain",
+        question: "Do you want to restart or end?",
+        choices: [
+          { text: "Restart", next: "start" },
+          { text: "End", next: "end" }
+        ]
+      },
+      end: {
+        reply: "Glad to chat! Come back anytime ❤️",
+        choices: [
+          { text: "Restart Conversation", next: "start" }
+        ]
+      }
+    };
+
+    const questionBox = document.getElementById('questionBox');
+    const choicesBox = document.getElementById('choicesBox');
+    const replyBox = document.getElementById('replyBox');
+
+    function loadNode(nodeName) {
+      const node = conversation[nodeName];
+      replyBox.textContent = node.reply || '';
+      questionBox.textContent = node.question || '';
+      choicesBox.innerHTML = '';
+
+      if (node.choices) {
+        node.choices.forEach(choice => {
+          const btn = document.createElement('button');
+          btn.classList.add('choice-btn');
+          btn.textContent = choice.text;
+          btn.addEventListener('click', () => loadNode(choice.next));
+          choicesBox.appendChild(btn);
+        });
+      }
+    }
+
+    // start conversation
+    loadNode('start');
+  </script>
+</body>
+</html>
+``
